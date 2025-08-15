@@ -1,0 +1,21 @@
+{
+  "name": "hogwarts",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cls && nodemon server.js"
+  },
+  "keywords": [
+    "Magia",
+    "Magos",
+    "Loucura"
+  ],
+  "author": "Murilo Milan",
+  "license": "MIT",
+  "description": "Um pequeno projeto de site com duas paginas",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
