@@ -1,5 +1,8 @@
 import express from "express";
-import bruxos from "./src/data/bruxos.js";
+import bruxos from "./src/data/dados.js";
+import dados from "./src/data/dados.js";
+
+const  { varinhas, animais, pocoes} = dados;
 
 
 const app = express();
@@ -15,60 +18,62 @@ app.get("/bruxos", (req, res) =>{
     res.json(bruxos);
 });
 
-app.get("/bruxos/:id", (req, res) => {
-    const id = parseInt(req.params.id);
-
-    const bruxo = bruxos.find(b => b.id === id);
-
-
-    //caso encontre, exibir por meio desse comando
-    if(bruxo){
-        res.json({
-            sucess: true,
-            messsage: `Bruxp ${bruxo.nome} encontrado! 👌`,
-            data: bruxo
-        })
-    }else {
-         //Caso não ache o bruxo exibir o erro 404
-         res.status(404).json({
-            sucess: false,
-            error: "Bruxo não encontrado",
-            message: `Nenhum com o ID ${id} foi encontrado`,
-            codigo: "WIZARD_NOT_FOUND"
-            
-         });
-    }
-});
-
-app.get("/bruxos/nome/:nome", (req,res) => {
-    const nome = req.params.nome.toLowerCase();
-
-    const bruxosEcontrados = bruxos.filter(b => b.nome.toLowerCase().includes(nome));
-
-    if(bruxosEcontrados.length>0){
-            res.status(200).json(bruxosEcontrados)
+app.get("/pocoes", (req, res) => {
+    if(pocoes.length>0){
+        res.status(200).json(pocoes)
     } else {
-        res.status(404).json({
-            mensagem: "Bruxo não encontrado"
-        })
+        res.status(404).json("Nenhuma poção desponivel")
     }
-});
-
-
-app.get("/bruxos/casa/:casa", (req, res) => {
-    let casa = req.params.casa;
-
-    const BruxosDaCasa = bruxos.filter(b => b.casa.toLowerCase().includes(casa));
-
-    if(BruxosDaCasa.length>0){
-        res.status(200).json(BruxosDaCasa);
-    } else {
-        res.status(404).json({
-            mensagem: "Nenhum bruxo dessa casa"
-        })
-    }
-
 })
+
+app.get("/animais", (req, res) => {
+    if(animais.length>0){
+        res.status(200).json(animais)
+    } else {
+        res.status(404).json("Nenhum animal disponivel")
+    }
+})
+app.get("/varinhas", (req, res) => {
+    if(varinhas.length > 0){
+        res.status(200).json(varinhas)
+    } else {
+        res.status(404).json("Não temos nenhuma varinha")
+    }
+})
+
+app.get("/varinhas/:id", (req, res) => {
+    id = parseInt(req.params.id);
+    const varinha = varinhas.find(v => v.id === id);
+
+    if(varinha){
+        res.status(200).json(varinha)
+    } else {
+        res.status(404).json(`Nenhuma varinha com o id: ${id} foi encontrado`)
+    }
+})
+
+app.get("/animais/:id", (req, res) => {
+    let id = parseInt(req.params.id);
+    const anima = animais.find(a => a.id === id);
+
+    if(anima){
+        res.status(200).json(anima)
+    } else {
+        res.status(404).json(`Nenhum animal com o id: ${id} foi encontrado`)
+    }
+})
+
+app.get("/pocoes/:id", (req, res) => {
+    let id = parseInt(req.params.id);
+    const pocaoes = pocoes.find(p => p.id === id)
+
+    if(pocaoes){
+        res.status(200).json(pocaoes)
+    } else {
+        res.status(404).json(`Nenhuma poção com o id: ${id}`)
+    }
+})
+
 
 app.listen(port, () => {
     console.log(`A minha API funcionando na porta ${port}`)

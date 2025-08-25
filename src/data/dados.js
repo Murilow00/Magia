@@ -1,5 +1,8 @@
-export default[
-    {
+
+
+const bruxos =
+
+    [{
       "id": 1,
       "nome": "Harry Potter",
       "casa": "Grifinória",
@@ -150,4 +153,83 @@ export default[
       "especialidade": "Ser o maioral 🧙‍♂️"
     }
   ]
+
+const varinhas = 
+[
+  {
+  "id": 1,
+  "material": "Azevinho",
+  "nucleo": "Pena de Fênix",
+  "comprimento": 28
+
+  },
+  {
+    "id": 2,
+    "material": "Videira",
+    "nucleo": "Fibra de Coração de dragão",
+    "comprimento": 27
+  },
+  {
+    "id": 3,
+    "material": "Salgueiro",
+    "nucleo": "Pelo de Unicornio",
+    "comprimento": 35
+  },
+  {
+    "id": 4,
+    "material": "Carvalho Ingles",
+    "nucleo": "Pelo de Testralio"
+  }
+]
+
+const animais = 
+[
+  {
+    "id": 1,
+    "nome": "Coruja",
+    "tipo": "Correio"
+  },
+  {
+    "id": 2,
+    "nome": "Gato",
+    "tipo": "Companhia"
+  },
+  {
+    "id": 3,
+    "nome": "Sapo",
+    "tipo": "Companhia"
+  },
+  {
+    "id": 4,
+    "nome": "Rato",
+    "tipo": "Companhia"
+  }
+]
+
+const pocoes = 
+[
+  {
+    "id": 1,
+    "nome": "Polissuco",
+    "efeito": "Transforma uma pessoa em outra",
+  },
+  {
+    "id": 2,
+    "nome": "Felix Felicis",
+    "efeito": "Sorte temporario"
+  },
+  {
+    "id": 3,
+    "nome": "Amorentia",
+    "efeito": "Pocao do amor"
+  },
+  {
+    "id": 4,
+    "nome": "Veritasserum",
+    "efeito": "Forca a dizer a verdade"
+  }
+
+]
+
   
+  export default { bruxos, varinhas, animais, pocoes };
